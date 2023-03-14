@@ -81,7 +81,6 @@ void movies :: printWithPrefix(string prefix, bool printAll)
     {
         if(prefixMovies.empty())
         {
-            cout << endl; 
             cout << "No movies found with prefix "<< prefix << endl;
         }
         else
@@ -94,7 +93,7 @@ void movies :: printWithPrefix(string prefix, bool printAll)
     }
     else
     {
-        if(prefixMovies.size() <= 1) // if empty or only one valid entry
+        if(prefixMovies.empty()) // if empty or only one valid entry
         {
             //Do nothing
         }
