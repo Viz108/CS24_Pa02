@@ -94,7 +94,7 @@ void movies :: printWithPrefix(string prefix, bool printAll)
     }
     else
     {
-        if(prefixMovies.empty())
+        if(prefixMovies.size() <= 1) // if empty or only one valid entry
         {
             //Do nothing
         }

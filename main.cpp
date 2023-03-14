@@ -60,7 +60,6 @@ int main(int argc, char** argv){
         movieData.printWithPrefix(argv[i], true);
         cout << endl; 
     }
-    cout << endl; 
 
   //  For each prefix,
   //  Print the highest rated movie with that prefix if it exists.
