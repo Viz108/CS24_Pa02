@@ -1,5 +1,5 @@
 all: 
-	g++ main.cpp movies.cpp
+	g++ main.cpp movies.cpp -o runMovies
 
 clear: 
-	rm a.out
+	rm runMovies

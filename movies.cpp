@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 #include "movies.h"
 
@@ -49,7 +50,7 @@ void movies :: printAlphabetically()
     }
 }
 
-void movies :: printWithPrefix(string prefix)
+void movies :: printWithPrefix(string prefix, bool printAll)
 {
     list<movieEntry> prefixMovies; 
     for(auto elem : movieList)
@@ -57,12 +58,51 @@ void movies :: printWithPrefix(string prefix)
         string currPrefix = elem.name.substr(0, prefix.size()); 
         if(currPrefix.compare(prefix) == 0)
         {
-            prefixMovies.push_back(elem);
+            list<movieEntry>::iterator tempIt = prefixMovies.begin();
+            bool inserted = false; 
+            for(tempIt; tempIt != prefixMovies.end(); ++tempIt)
+            {
+                movieEntry tempElem = *tempIt; 
+                if(tempElem.rating < elem.rating)
+                {
+                    prefixMovies.insert(tempIt, elem);
+                    inserted = true; 
+                    break; 
+                }
+            }
+            if(!inserted)
+            {
+                prefixMovies.push_back(elem);
+            }
         }
     }
 
-    for(auto elem : prefixMovies)
+    if(printAll)
     {
-        cout << elem.name << ", " << elem.rating << endl; 
+        if(prefixMovies.empty())
+        {
+            cout << endl; 
+            cout << "No movies found with prefix "<< prefix << endl;
+        }
+        else
+        {
+            for(auto elem : prefixMovies)
+            {
+                cout << elem.name << ", " << std::fixed << std::setprecision(1) << elem.rating << endl; 
+            }
+        }
     }
+    else
+    {
+        if(prefixMovies.empty())
+        {
+            //Do nothing
+        }
+        else
+        {
+            movieEntry bestMovie = *(prefixMovies.begin()); 
+            cout << "Best movie with prefix " << prefix << " is: " << bestMovie.name << " with rating " << std::fixed << std::setprecision(1) << bestMovie.rating << endl;
+        }
+    }
+    
 }
