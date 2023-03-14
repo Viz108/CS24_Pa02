@@ -58,6 +58,7 @@ int main(int argc, char** argv){
     for(int i = 2; i < argc; i++)
     {
         movieData.printWithPrefix(argv[i], true);
+        cout << endl; 
     }
     cout << endl; 
 

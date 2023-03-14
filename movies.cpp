@@ -46,7 +46,7 @@ void movies :: printAlphabetically()
 {
     for(auto elem : movieList)
     {
-        cout << elem.name << ", " << elem.rating << endl; 
+        cout << elem.name << ", " << fixed << setprecision(1) << elem.rating << endl; 
     }
 }
 
@@ -88,7 +88,7 @@ void movies :: printWithPrefix(string prefix, bool printAll)
         {
             for(auto elem : prefixMovies)
             {
-                cout << elem.name << ", " << std::fixed << std::setprecision(1) << elem.rating << endl; 
+                cout << elem.name << ", " << fixed << setprecision(1) << elem.rating<< endl; 
             }
         }
     }
@@ -101,7 +101,7 @@ void movies :: printWithPrefix(string prefix, bool printAll)
         else
         {
             movieEntry bestMovie = *(prefixMovies.begin()); 
-            cout << "Best movie with prefix " << prefix << " is: " << bestMovie.name << " with rating " << std::fixed << std::setprecision(1) << bestMovie.rating << endl;
+            cout << "Best movie with prefix " << prefix << " is: " << bestMovie.name << " with rating " << fixed << setprecision(1) << bestMovie.rating << endl;
         }
     }
     
