@@ -1,6 +1,6 @@
 // Spring'22
 // Instructor: Diba Mirza
-// Student name: 
+// Student name: Vishal S. 
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -12,6 +12,9 @@
 #include <iomanip>
 #include <set>
 #include <queue>
+
+#include "movies.h"
+
 using namespace std;
 
 bool parseLine(string &line, string &movieName, double &movieRating);
@@ -31,21 +34,20 @@ int main(int argc, char** argv){
     }
   
   // Create an object of a STL data-structure to store all the movies
+  movies movieData;
 
   string line, movieName;
   double movieRating;
   // Read each file and store the name and rating
   while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
-        // Use std::string movieName and double movieRating
-        // to construct your Movie objects
-        // cout << movieName << " has rating " << movieRating << endl;
-        // insert elements into your data structure
+        movieData.addMovie(movieName, movieRating);
   }
 
   movieFile.close();
 
   if (argc == 2){
         //print all the movies in ascending alphabetical order of movie names
+        movieData.printAlphabetically();
         return 0;
   }
 
