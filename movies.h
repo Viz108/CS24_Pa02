@@ -24,6 +24,8 @@ class movies
         movies(); 
         void addMovie(string movieName, double movieRating); 
         void printAlphabetically(); 
+        void printWithPrefix(string prefix);
+        void printHighestWithPrefix(); 
 };
 
 #endif

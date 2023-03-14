@@ -48,3 +48,21 @@ void movies :: printAlphabetically()
         cout << elem.name << ", " << elem.rating << endl; 
     }
 }
+
+void movies :: printWithPrefix(string prefix)
+{
+    list<movieEntry> prefixMovies; 
+    for(auto elem : movieList)
+    {
+        string currPrefix = elem.name.substr(0, prefix.size()); 
+        if(currPrefix.compare(prefix) == 0)
+        {
+            prefixMovies.push_back(elem);
+        }
+    }
+
+    for(auto elem : prefixMovies)
+    {
+        cout << elem.name << ", " << elem.rating << endl; 
+    }
+}

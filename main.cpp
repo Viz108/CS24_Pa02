@@ -54,6 +54,9 @@ int main(int argc, char** argv){
   //  For each prefix,
   //  Find all movies that have that prefix and store them in an appropriate data structure
   //  If no movie with that prefix exists print the following message
+
+    movieData.printWithPrefix(argv[2]);
+
   cout << "No movies found with prefix "<<"<replace with prefix>" << endl << endl;
 
   //  For each prefix,
