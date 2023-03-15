@@ -97,4 +97,58 @@ bool parseLine(string &line, string &movieName, double &movieRating) {
 
 /*
     Space and Time Complexity Analyses
+
+    Part 3a - Complexity Analyses
+
+
+    Printing all entries with prefix: 
+
+    m calls to printWithPrefix 
+
+    Inside printWithPrefix
+    first for loop - executes n times
+        worst case, assume every entry has the prefix
+        inner for loop - assuming rating is greater than all already inserted ratings - executes 1 additional time each outer for loop
+        maximum execution is n times, when every entry is inserted into prefixMovies
+        All other statements are constant time, can be ignored
+
+    second for loop - executes m times (again, assuming worst case every entry is valid)
+
+    O(m*((n*n)+m)) = O(m(n^2+m))
+
+    Printing best entries: 
+
+    m calls to printWithPrefix again
+
+    Inside printWithPrefix
+    First for loop is same as before
+
+    Instead of second for loop, just prints out first entry to prefixMovies - constant time
+
+    O(m*(n*n)+1) = O(m*(n^2))
+
+    Putting both together
+    O((m(n^2+m))(m*(n^2))) 
+    = O((m*n^2)^2)+m^2) < ------- FINAL ANSWER
+
+
+
+    Part 3b - Space Analysis
+
+    Each call to printWithPrefix declares a new prefixMovies list of movieEntry structs to store data
+    Each movieEntry has a double and a string - O(1) and O(n), respectively
+    All other declared variables are constant size, so O(1)
+    Thus, the printWithPrefix's space complexity is O(n)
+
+    printWithPrefix is called again to print the top element, so the final space complexity is
+    2O(n) = O(n) < --------- FINAL ANSWER
+
+
+    Part 3c - Explore tradeoffs
+    I designed my algorithm for a low space complexity. I believe I was able to reach this goal.
+    The space complexity is O(n) - in other words, the amount of space used by the program is 
+    directly proportional to the number of entries, which makes sense, since more space will be needed
+    no matter what to store more data. There isn't really a way to reduce this, so I believe I was 
+    able to acheive low space complexity. 
+
 */
